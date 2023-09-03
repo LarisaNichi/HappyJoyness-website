@@ -1,0 +1,121 @@
+@use "../abstracts/" as *;
+
+.hero {
+    &__text-box {
+        grid-column: center-start / col-end 5;
+        grid-row: 1;
+        align-self: center;
+        position: relative;
+        z-index: 10;
+
+        @include respond(tab-port) {
+            grid-column: center-start / col-end 6;
+        }
+
+        @include respond(phone-land) {
+            grid-column: center-start / col-end 7;
+        }
+        @include respond(phone) {
+            grid-column: $center-grid;
+            text-align: center;
+            align-self: end;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 95vh;
+            height: 95vh;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-25%, -50%);
+            z-index: -10;
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary-light-1, 0.05),
+                rgba($color-secondary-light-1, 0.25)
+            );
+            background-size: cover;
+
+            @include respond(phone) {
+                width: 120vh;
+                height: 120vh;
+                transform: translate(-100%, -30%);
+            }
+        }
+    }
+    &__image {
+        grid-column: col-start 5 / full-end;
+        grid-row: 1;
+        background-image: url(../img/hero.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+        @include respond(tab-port) {
+            grid-column: col-start 6 / full-end;
+        }
+
+        @include respond(phone-land) {
+            grid-column: col-start 7 / full-end;
+        }
+
+        @include respond(phone) {
+            grid-column: $full-bleed-grid;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            grid-row: 2;
+            height: 55vh;
+            align-self: end;
+        }
+    }
+
+    &__description {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 1.6;
+        padding-right: 3.2rem;
+
+        @include respond(phone) {
+            font-size: 2rem;
+            line-height: 1.5;
+            padding-right: 0;
+        }
+
+        &--outline {
+            text-transform: uppercase;
+            font-size: 3rem;
+            color: $color-primary;
+            display: inline-block;
+            @include transition-long;
+
+            @include respond(phone) {
+                font-size: 2.5rem;
+            }
+
+            &:hover {
+                transform: scaleX(1.15);
+                color: $color-primary-dark-1;
+            }
+        }
+    }
+
+    &__links {
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.4rem;
+
+        @include respond(phone-land) {
+            gap: 1.8rem;
+            width: 90%;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

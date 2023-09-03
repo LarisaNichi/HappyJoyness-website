@@ -1,0 +1,71 @@
+@use "../abstracts" as *;
+
+.section-terms,
+.section-privacy,
+.section-cookies {
+    grid-column: $center-grid;
+}
+
+.terms-and-conditions,
+.privacy-policy,
+.cookies-policy {
+    max-width: $maxwidth-content;
+    margin: 0 auto;
+
+    @include respond(big-desk) {
+        max-width: 60%;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom:2.4rem;
+
+        @include respond(tab-port) {
+            font-size: 2.4rem;
+        }
+
+        &:first-of-type {
+            text-transform: uppercase;
+            color: $color-primary-dark-1;
+        }
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 1.6rem;
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    
+    p {
+        font-size: $paragraph-font-size;
+        line-height: 2;
+        font-weight: 500;
+        margin-bottom: 1.2rem;
+    }
+
+    ul {
+        padding-left: 3.2rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-primary-dark-1;
+    }
+}
+
+

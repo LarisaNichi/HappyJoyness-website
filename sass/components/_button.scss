@@ -1,0 +1,149 @@
+@use "../abstracts" as *;
+
+//STYLING LINKS
+
+.btn-link {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        font-size: $paragraph-font-size;
+        padding: 1.2rem 3.2rem;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 1.2rem;
+        @include transition-short;
+
+        @include respond(tab-port) {
+            padding: 1.2rem 2.4rem;
+        }
+
+        @include respond(phone) {
+            padding: 1.2rem 1.6rem;
+        }
+
+    }
+    &:hover {
+        box-shadow: $box-shadow-md;
+    }
+
+    &:active {
+        box-shadow: $box-shadow-sm;
+        transform: translateY(-0.1rem);
+    }
+
+    &--primary {
+        &,
+        &:link,
+        &:visited {
+            background-color: $color-primary;
+            color: $color-white;
+            border: 0.2rem solid $color-primary;
+        }
+
+        &:hover {
+            background-color: $color-primary-dark-1;
+            color: $color-light-1;
+            border: 0.2rem solid $color-primary-dark-1;
+        }
+    }
+
+    &--secondary {
+        &,
+        &:link,
+        &:visited {
+            background-color: $background-color;
+            color: $color-primary;
+            border: 0.2rem solid currentColor;
+        }
+
+        &:hover {
+            background-color: $color-secondary-light-2;
+            color: $color-primary-dark-1;
+            border: 0.2rem solid $background-color;
+        }
+    }
+
+    &--tertiary {
+        &,
+        &:link,
+        &:visited {
+            background-color: $background-color;
+            color: $color-primary-dark-2;
+            border: 0.2rem solid $color-secondary;
+        }
+
+        &:hover {
+            background-color: $color-secondary-light-1;
+            color: $color-dark-1;
+            border: 0.2rem solid $background-color;
+        }
+    }
+
+    &--transparent {
+        &,
+        &:link,
+        &:visited {
+            background-color: transparent;
+            color: $color-dark-2;
+            border: 0.2rem solid $color-secondary;
+        }
+
+        &:hover {
+            color: $color-dark-1;
+            border: 0.2rem solid $background-color;
+        }
+    }
+}
+
+//STYLING LINKS INSIDE PARAGRAPHS
+
+.link {
+    text-decoration: none;
+}
+
+//STYLING BUTTONS
+
+.btn {
+    display: block;
+    font-size: $paragraph-font-size;
+    padding: 1.2rem 3.2rem;
+    font-weight: 600;
+    border-radius: 1.2rem;
+    @include transition-short;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+        padding: 1.2rem 2.4rem;
+    }
+
+    @include respond(phone) {
+        padding: 1.2rem 1.6rem;
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+    }
+    &:hover {
+        box-shadow: $box-shadow-sm;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &--form {
+        background-color: $color-secondary-light-1;
+        color: $color-dark-1;
+        border: 0.2rem solid $background-color;
+
+        &:hover {
+            background-color: $color-secondary;
+            color: $color-primary-dark-2;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem $color-secondary;
+        }
+    }
+}

@@ -1,0 +1,311 @@
+@use "../abstracts" as *;
+
+//STYLING MAIN LIST
+
+.main-nav {
+    margin-left: auto;
+
+    @include respond(phone) {
+        position: absolute;
+        top: $header-height;
+        left: 0;
+        width: 100%;
+        background-color: rgba($color-light-4, 1);
+        box-shadow: inset 0 0 3.2rem rgba($color-secondary-light-1, 0.4);
+
+        padding: 4.8rem 1.6rem;
+        display: none;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        @include respond(phone-land) {
+            gap: 0.4rem;
+        }
+
+        @include respond(phone) {
+            width: 45%;
+            min-width: 16rem;
+
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: flex-start;
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        position: relative;
+        cursor: pointer;
+
+        // the border from the bottom
+
+        &::after {
+            content: "";
+            border-bottom: 0.2rem solid $color-primary-dark-1;
+            width: 0%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            @include transition-long;
+
+            @media only screen and (hover: hover) {
+                display: block;
+            }
+            @media only screen and (hover: none) {
+                display: none;
+            }
+            @include respond(phone) {
+                display: none;
+            }
+        }
+
+        &:hover,
+        &--outline {
+            background-color: $background-color;
+            border-radius: 0.5rem 0.5rem 0 0;
+            box-shadow: inset 0 0 1.6rem rgba($color-secondary-light-1, 0.5);
+        }
+        &:hover::after,
+        &--outline::after {
+            width: 100%;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+        }
+    }
+
+
+    &__link {
+        &,
+        &:link,
+        &:visited {
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-style: italic;
+            color: $color-dark-2;
+            text-align: center;
+            @include transition-long;
+            padding: 1.2rem 1.6rem;
+
+            @include center-vertical;
+
+            @include respond(phone-land) {
+                padding: 1.2rem;
+            }
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary-dark-1;
+        }
+
+        &--outline:link,
+        &--outline:visited {
+            color: $color-primary-dark-1;
+        }
+
+        // STYLING DROPDOWN ARROW//
+
+        &--toggle:link,
+        &--toggle:visited {
+            padding-right: 3.2rem;
+
+            @include respond(phone) {
+                padding-right: 0;
+            }
+        }
+
+        &--toggle::before,
+        &--toggle::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 0.6rem solid transparent;
+            border-right: 0.6rem solid transparent;
+
+            position: absolute;
+            top: 50%;
+            z-index: 20;
+
+            @include transition-short;
+
+            @include respond(phone) {
+                border-top: 0.6rem solid transparent !important;
+                border-bottom: 0.6rem solid transparent !important;
+            }
+        }
+
+        &--toggle::before {
+            border-top: 0.6rem solid currentColor;
+            left: 100%;
+            transform: translate(-265%, -25%);
+
+            @include respond(phone) {
+                border-left: 0.6rem solid currentColor !important;
+                transform: translate(-250%, -50%);
+            }
+        }
+        
+        &--toggle::after {
+            border-bottom: 0.6rem solid currentColor;
+            visibility: hidden;
+            opacity: 0;
+            left: 100%;
+            transform: translate(-265%, -75%);
+            
+            @include respond(phone) {
+                border-right: 0.6rem solid currentColor !important;
+                transform: translate(-325%, -50%);
+            }
+        }
+
+        // hiding the ::before arrow on hover while showing the ::after arrow in the same time
+
+        &--toggle:hover::before,
+        &--toggle:active::before {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &--toggle:hover::after,
+        &--toggle:active::after {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    //STYLING DROPDOWN LIST
+
+    &__list-dropdown {
+        list-style: none;
+        width: 100%;
+        background-color: rgba($background-color, 0.9);
+        position: absolute;
+        transform-origin: top;
+        transform: scaleY(0);
+        border-radius: 0 0 0.2rem 0.2rem;
+        @include transition-long;
+
+        @include respond(phone) {
+            top: -210%;
+            left: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            width: 100%;
+            max-width: 45vw;
+        }
+    }
+
+    &__item-dropdown {
+        display: block;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-light-4;
+        }
+
+        box-shadow: inset 0 0 0.8rem rgba($color-secondary-light-1, 0.5);
+    }
+
+    &__link-dropdown {
+        &,
+        &:link,
+        &:visited {
+            display: block;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $color-dark-1;
+            @include transition-long;
+            line-height: 1.5;
+            padding: 0.8rem 1.6rem;
+
+            @include respond(phone) {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary-dark-1;
+        }
+    }
+
+    &__icon-dropdown {
+        display: inline-block;
+        margin-right: 1.2rem;
+    }
+
+    //STYLING CHECKBOX - FOR OPENING THE DROPDOWN LIST ON MOBILE DEVICES, WITHOUT HOVER EFFECT
+
+    &__opener {
+        &__input,
+        &__label {
+            width: 3.5rem;
+            height: 3.5rem;
+
+            position: absolute;
+            top: 0%;
+            left: 100%;
+            transform: translate(calc(-100% - 0.8rem), 10%);
+            cursor: pointer;
+
+            @media only screen and (hover: hover) {
+                display: none;
+            }
+            @media only screen and (hover: none) {
+                display: block;
+            }
+        }
+
+        &__input {
+            z-index: 25;
+            opacity: 0;
+        }
+
+        &__label {
+            background-color: $background-color;
+            border-radius: 50%;
+            box-shadow: inset 0 0 1.6rem rgba($color-secondary, 0.5);
+            left: 100%;
+            z-index: 15;
+
+            @media only screen and (hover: none) {
+                opacity: 1;
+            }
+        }
+    }
+
+    // Opening of the dropdown-list on hover or on click for mobile
+
+    &__item--toggle:hover &__list-dropdown,
+    &__opener__input:checked ~ &__list-dropdown {
+        transform: scaleY(1);
+        display: block;
+
+        @include respond(phone) {
+            transform: scaleX(1);
+        }
+    }
+
+    //Styling the dropdown list when checkbok is checked similar with the styling on hover - functionality for mobile only
+
+
+    &__opener__input:checked ~ &__link--toggle:before {
+        visibility: hidden;
+        opacity: 0;
+    }
+    &__opener__input:checked ~ &__link--toggle::after {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
