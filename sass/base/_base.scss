@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+
+*, *::before, *::after {
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @include respond(big-desk){ 
+        font-size: 75%; //1rem=12px=> 12/16 = 75%
+       }   
+     @include respond(tab-land){
+        font-size: 56.25%; //1rem=9px=> 9/16 = 56.25%
+     }    
+
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $default-font-family;
+    color: $default-color;
+    font-weight: 400;
+    line-height: 1;
+    min-height: 100vh;
+    width: 100%;
+    background-color: $background-color;
+
+}

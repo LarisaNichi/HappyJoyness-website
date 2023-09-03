@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+//STYLING HAMBURGER MENU - CHECKBOX - used for small size screens
+
+.nav-checkbox {
+    &__input,
+    &__label {
+        width: 4.5rem;
+        height: 4.5rem;
+        position: absolute;
+        top:50%;
+        left: 100%;
+        transform: translate(calc(-100% - 5vw), -50%);
+        cursor: pointer;
+        display: none;
+
+        @include respond(phone) {
+            display: block;
+            z-index: 9999;
+        }
+    }
+
+    &__input {
+        @include respond(phone) {
+            opacity: 0;
+        }
+    }
+
+    &__label {
+        background-color: transparent;
+        box-shadow: inset 0 0 0.8rem rgba($color-secondary-light-1, 0.5);
+        border-radius: 50%;
+
+
+        //STYLING WHEN HOVERING THE HAMBURGER MENU
+
+        &:hover &__content::before {
+            transform: translateY(-0.8rem);
+        }
+
+        &:hover &__content::after {
+            transform: translateY(0.8rem);
+        }
+
+        // STYLING THE LINES FROM THE HAMBURGHER MENU
+
+        &__content {
+            display: block;
+            width: 2rem;
+            height: 0.2rem;
+            background-color: $color-primary;
+            @include absCenter;
+            color: $color-primary;
+
+            &::before,
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: currentColor;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:before {
+                transform: translateY(-0.7rem);
+            }
+
+            &::after {
+                transform: translateY(0.7rem);
+            }
+        }
+    }
+
+    //ROTATE HAMBURGER LINES WHEN THE INPUT IS CHECKED
+
+    &__input:checked ~ &__label &__label__content::before {
+        transform: rotate(45deg);
+    }
+
+    &__input:checked ~ &__label &__label__content::after {
+        transform: rotate(-45deg);
+    }
+
+    &__input:checked ~ &__label &__label__content {
+        background-color: transparent;
+    }
+
+    // showing the main-nav when clicking the hamburgher menu
+    &__input:checked ~ .main-nav {
+        display: block;
+    }
+}

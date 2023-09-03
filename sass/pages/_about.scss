@@ -1,0 +1,112 @@
+@use "../abstracts" as *;
+
+//SECTION ABOUT - HERO
+
+.section-about-hero {
+    grid-column: $full-bleed-grid;
+    max-height: 80vh;
+    position: relative;
+    overflow: hidden;
+
+    @include linear-gradient(to left top);
+
+    @include frame($color-primary, $color-secondary, 0.15, 0.25, 10);
+    @include center-vertical;
+
+}
+
+.about-hero {
+    width: 50%;
+    max-width: $maxwidth-content;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    z-index: 20;
+    animation: fadein 1s ease;
+
+    @include respond(tab-port) {
+        width:60%;
+    }
+    @include respond(phone-land) {
+        width:70%;
+    }
+    @include respond(phone) {
+        width:80%;
+    }
+
+    &:before {
+        content: "";
+        width: 120%;
+        padding-bottom: 120%;
+        background-color: rgba($color-white, 0.15);
+        border-radius: 50%;
+        z-index: -20;
+        @include absCenter;
+    }
+
+    &__text {
+        font-size: 3.6rem;
+        color: $color-primary-dark-1;
+        line-height: 1.5;
+        font-weight: 500;
+
+        @include respond(tab-port) {
+            font-size: 3rem;
+            line-height: 1.4;
+        }
+    
+        @include respond(phone) {
+            font-size: 2.4rem;
+        }
+    }
+}
+
+//SECTION ABOUT - CONTENT
+
+.section-about-content {
+    grid-column: $full-bleed-grid;
+
+    background-image: linear-gradient(to right, rgba($color-secondary, 0.8), rgba($color-secondary, 0.8)),
+        url(../img/sky.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: screen;
+}
+
+.about-content {
+    grid-column: $center-grid;
+    @include linear-gradient(to left top);
+    @include frame($color-primary, $color-secondary, 0.05, 0.15, 10);
+
+    border-radius: 0.5rem;
+    position: relative;
+
+    &__story,
+    &__disclaimer,
+    &__accordion {
+        position: relative;
+        z-index: 100;
+        width: 55%;
+        max-width: $maxwidth-content;
+        margin: 0 auto;
+
+        @include respond(tab-port) {
+            width:65%;
+        }
+        @include respond(phone-land) {
+            width:75%;
+        }
+        @include respond(phone) {
+            width:80%;
+        }
+        @include respond(big-desk) {
+            max-width: 60%;
+        }
+    
+    }
+
+    &__header,
+    &__link {
+        text-align: center;
+    }
+}

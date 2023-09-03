@@ -1,0 +1,122 @@
+@use "../abstracts" as *;
+
+.footer {
+    background-color: rgba($color-light-4, 0.9);
+    padding: 4.8rem 0;
+
+    &__container {
+        max-width: 70%;
+        margin: 0 auto;
+
+        display: flex;
+        gap: 2.4rem;
+
+        @include respond(tab-land) {
+            max-width: 85%;
+        }
+
+        @include respond(phone-land) {
+            max-width: 90%;
+            flex-wrap: wrap;
+        }
+
+        @include respond(big-desk) {
+            max-width: 65%;
+        }
+
+    }
+
+    &__logo-col, &__nav-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__logo-col {
+        text-align: center;
+        gap: 2.4rem;
+        flex: 1 1 25%;
+
+        @include respond(phone-land) {
+            order: 5;
+            flex: 1 0 100%;
+            flex-direction: row;
+            text-align: start;
+        }
+
+        @include respond(phone) {
+            gap: 0;
+            text-align: center;
+        }
+    }
+
+    &__nav-col {
+        flex: 1 1 calc(50% / 3);
+        min-width: 12.5rem;
+
+        @include respond(phone-land) {
+            flex: 1;
+        }
+    }
+
+    &__social-col {
+        align-self: center;
+        flex: 1 1 25%;
+
+        @include respond(phone-land) {
+            flex: 1;
+        }
+        @include respond(phone) {
+            min-width: 12.5rem;
+        }
+    }
+
+    &__nav-list,
+    &__nav-list__social {
+        list-style: none;
+    }
+
+    &__nav-list__social {
+        @include center-both;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    &__nav-item,
+    &__nav-item__social {
+        display: block;
+    }
+
+    &__link {
+        &,
+        &:link,
+        &:visited {
+            display: block;
+            text-decoration: none;
+            font-size: $paragraph-font-size;
+            font-weight: 500;
+            line-height: 2;
+            color: $default-color;
+            cursor: pointer;
+        }
+        &:hover,
+        &:active {
+            color: $color-primary-dark-1;
+        }
+    }
+}
+
+.social-icon {
+    display: block;
+    font-size: 2.4rem;
+    color: $color-primary-dark-2;
+    &:hover {
+        color: $color-primary-dark-1;
+    }
+}
+
+.copyright {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-weight: 500;
+}

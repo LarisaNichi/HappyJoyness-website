@@ -1,0 +1,83 @@
+
+//COLORS
+
+$color-primary:#d9480f;
+$color-primary-light-1:#dd5a27;
+$color-primary-light-2:#f0b69f;
+$color-primary-dark-1:#c3410e;
+$color-primary-dark-2:#571d06;
+
+$color-secondary:#ffb627;
+$color-secondary-light-1:#ffbd3d;
+$color-secondary-light-2:#ffe2a9;
+$color-secondary-dark-1:#e6a423;
+$color-secondary-dark-2:#cc921f;
+
+
+$color-white:#fff; 
+$color-light-1:#fbede7; //light-orange
+$color-light-2:#f7dacf; //light-orange darker
+
+$color-light-3: #fff8e9; //light-yellow - background color
+$color-light-4: #fff0d4; //light-yellow darker
+
+$color-black: #000; 
+$color-dark-1:#160701; //dark-brown more-black - default color
+$color-dark-2: #2b0e03; //dark-brown more-brown
+
+
+/* FONT COLOR */
+$default-color: $color-dark-1;
+
+/*BACKGROUND COLOR*/
+$background-color: $color-light-3;
+
+
+/* FONT FAMILY */
+$default-font-family: 'Lora', serif;
+
+/*FONT SIZES for PARAGRAPHS*/
+$paragraph-font-size:1.6rem; //default font size for paragraphs
+
+
+
+/*BOX SHADOW */
+
+$box-shadow-vs: 0 0.25rem 0.5rem rgba($color-black, 0.1);
+$box-shadow-sm: 0 0.5rem 1rem rgba($color-black, 0.15);
+$box-shadow-md: 0 1rem 2rem rgba($color-black, 0.15);
+$box-shadow-hg: 0 1.5rem 3rem rgba($color-black, 0.15);
+
+
+
+/* GRID VARIABLES */
+
+$full-bleed-grid: full-start / full-end;
+$center-grid: center-start / center-end;
+$gap-grid: 9.6rem;
+
+/* OTHER UTILIES  */
+
+$maxwidth-content: 75rem;
+$header-height: 6rem;
+
+
+/* BRAKEPOINTS FOR MEDIA  */
+
+// 1em = 16 px
+
+// phone: < 576px, 36em
+// phone-land: < 768px, 48em
+// tab-port: < 992px, 62em 
+// tab-land: < 1200px, 75em 
+// normal style (desktop): 1200 px - 1800px, 75em - 112.5em 
+// big-desk: > 1800 px, 112.5em
+
+$phone: 36em;
+$phone-land: 48em;
+$tab-port: 62em;
+$tab-land: 75em;
+$big-desk: 112.5em;
+
+
+

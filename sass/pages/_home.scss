@@ -1,0 +1,26 @@
+@use "../abstracts" as *;
+
+.section-hero {
+    grid-column: $full-bleed-grid;
+    height: 90vh;
+    overflow: hidden;
+
+    @include respond(phone) {
+        row-gap: 4.8rem;
+        padding-top: 4.8rem;
+    }
+
+}
+
+.section-testimonials,
+.section-features,
+.section-cards,
+.section-cta {
+    grid-column: $center-grid;
+    padding-top: 6.4rem;
+    margin-top: -3.2rem;
+
+    @include respond(tab-port) {
+        margin-top: -6.4rem;
+    }
+}

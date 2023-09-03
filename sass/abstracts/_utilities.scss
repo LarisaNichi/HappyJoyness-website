@@ -1,0 +1,83 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* HELPER CLASSES  */
+
+// margin right
+.mg-r-sm {
+    margin-right: 1.6rem;
+}
+
+// margin bottom
+.mg-b-sm {
+    margin-bottom: 1.6rem; //margin bottom small
+
+    @include respond(phone-land) {
+        margin-bottom: 0.8rem;
+    }
+}
+.mg-b-md {
+    margin-bottom: 3.2rem; // margin bottom medium
+
+    @include respond(phone-land) {
+        margin-bottom: 2.4rem;
+    }
+}
+.mg-b-bg {
+    margin-bottom: 4.8rem; //margin bottom big
+
+    @include respond(tab-port) {
+        margin-bottom: 3.2rem;
+    }
+    @include respond(phone) {
+        margin-bottom: 2.4rem;
+    }
+}
+
+.mg-b-hg {
+    margin-bottom: 6.4rem; //margin bottom huge
+    @include respond(tab-land) {
+        margin-bottom: 4.8rem;
+    }
+}
+
+.mg-b-xhg {
+    margin-bottom: $gap-grid; //margin bottom extra huge 
+}
+
+.mg-b-xhg-neg {
+    margin-bottom: -$gap-grid; //margin bottom extra huge - negative
+}
+
+//pading
+.pd-t-xhg {
+    padding-top: $gap-grid; //padding top extra huge 
+}
+.pd-b-xhg {
+    padding-bottom: $gap-grid; //padding bottom extra huge;
+}
+
+.pd-tb-xhg {   //padding top-bottom extra huge
+    padding-top: 9.6rem; 
+    padding-bottom: 9.6rem;
+
+    @include respond(tab-land) {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+    @include respond(tab-port) {
+        padding-top: 6.4rem;
+        padding-bottom: 6.4rem;
+    }
+    @include respond(phone-land) {
+        padding-top: 4.8rem;
+        padding-bottom: 4.8rem;
+    }
+}
+
+// *** Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 112/ 128
+
+// *** Font size system (px)
+//  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 / 128
+

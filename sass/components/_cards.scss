@@ -1,0 +1,297 @@
+@use "../abstracts" as *;
+
+.cards {
+    margin: 0 auto 9.6rem;
+
+    @include respond(tab-land) {
+        margin: 0 auto 8rem;
+    }
+    @include respond(tab-port) {
+        margin: 0 auto 6.4rem;
+
+        & > * {
+            grid-column: 1 / -1;
+        }
+    }
+    @include respond(phone-land) {
+        margin: 0 auto 4.8rem;
+    }
+
+    &__extra {
+        @include center-horizontal;
+    }
+}
+
+
+
+//STYLING CARD SIDES
+
+.card {
+    &__container {
+        min-height: 55rem;
+        max-height: 55vh;
+        max-width: 34rem;
+        width: 100%;
+
+        position: relative;
+        perspective: 150rem;
+
+        @include respond(big-desk){
+            max-width: 45rem;
+        }
+
+    }
+
+    &__side {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+
+        transition: transform 0.8s ease-out;
+
+        &--front {
+            background-image: linear-gradient(to right, rgba($color-secondary, 0.7), rgba($color-secondary, 0.7)),
+                url(../img/sky.jpg);
+            background-size: cover;
+            background-position: center center;
+            background-blend-mode: screen;
+        }
+
+        &--back {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-secondary-light-1, 0.7),
+                    rgba($color-white, 0.15)
+                ),
+                url(../img/flowers.jpg);
+            background-size: cover;
+            background-position: center center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6.4rem;
+
+            transform: rotateY(180deg);
+        }
+    }
+
+    //CARD CONTENT
+
+    &__details {
+        height: inherit;
+    }
+
+    &__header {
+        padding: 2.4rem;
+        height: 40%;
+
+        @include linear-gradient(240deg);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.2rem;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+
+        &--outline {
+            background-image: linear-gradient(
+                220deg,
+                $color-primary-light-1 20%,
+                $color-secondary-light-1 20%,
+                $color-secondary-light-1 35%,
+                $color-white
+            );
+        }
+
+        &--extra {
+            flex-direction: row;
+            column-gap: 2.4rem;
+
+            & > *:last-child {
+                padding: 0.8rem 0;
+            }
+
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            border-radius: 0.5rem;
+            @include transition-long;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            @include respond(phone-land) {
+                flex-wrap: wrap;
+                justify-content: center;
+                column-gap: 1.2rem;
+            }
+        }
+    }
+
+    &__icons {
+        display: flex;
+        gap: 0.4rem;
+
+        @include respond(phone-land) {
+            justify-content: flex-end;
+        }
+    }
+    &__icon-front {
+        display: inline-block;
+        font-size: 2.4rem;
+        color: $color-primary-dark-2;
+    }
+
+    &__icon-back {
+        display: block;
+        font-size: 12.8rem;
+        color: $color-secondary-light-1;
+        background-color: $color-primary;
+        border-top: 0.4rem solid $color-primary;
+        outline: 0.4rem solid currentcolor;
+        outline-offset: 0.4rem;
+        border-radius: 50%;
+    }
+
+    &__price {
+        font-weight: 700;
+        color: $color-primary;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &__value {
+            font-size: 2rem;
+            text-transform: uppercase;
+            padding-right: 0.8rem;
+        }
+        &__currency {
+            font-size: 2.4rem;
+            font-style: italic;
+            background-color: $color-secondary-light-1;
+            padding: 0.8rem;
+            border-radius: 50%;
+            border-bottom: 0.2rem solid currentColor;
+        }
+
+        &__period {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 1.8rem 0;
+
+        &__item {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            font-weight: 600;
+
+            padding: 0.8rem 3.2rem;
+
+            @include center-vertical;
+            gap: 1.6rem;
+
+            &:not(:last-child) {
+                border-bottom: 0.1rem solid $color-primary-light-2;
+            }
+        }
+        &__icon {
+            color: $color-primary;
+            font-size: 1.8rem;
+        }
+        &__experience {
+            color: $color-primary-dark-2;
+        }
+    }
+
+    //CARD CHECKBOX ADDED FOR FUNCTIONALITY - TO BE ABLE TO ROTATE THE CARDS ON MOBILES TOO
+
+    &-checkbox {
+        &__label,
+        &__input {
+            position: absolute;
+            left: 50%;
+            top: calc(100% - 2.4rem);
+            transform: translate(-50%, -100%);
+            @include center-horizontal;
+        }
+
+        &__label {
+            font-size: 2rem;
+            padding: 1.2rem 3.2rem;
+            background-color: transparent;
+            color: $color-primary-dark-2;
+            border: 0.2rem solid $color-secondary;
+            border-radius: 1.2rem;
+            transform-style: preserve-3d;
+            z-index: 30;
+            transition: all 0.8s ease-out;
+
+            @media only screen and (hover: none) {
+                cursor: pointer;
+            }
+
+            &__content {
+                opacity: 0;
+            }
+        }
+
+        &__input {
+            height: 7rem;
+            width: 7rem;
+            z-index: 50;
+            opacity: 0;
+
+            @media only screen and (hover: hover) {
+                display: none;
+            }
+            @media only screen and (hover: none) {
+                visibility: visible;
+                cursor: pointer;
+            }
+        }
+    }
+
+    //FUNCTIONALITY FOR THE CARDS
+
+    // ROTATE THE CARD WHEN CHECKED THE INPUT - FUNCTIONALITY ONLY FOR MOBILE
+
+    @media only screen and (hover: none) {
+        &-checkbox__input:checked ~ &__side--front {
+            transform: rotateY(-180deg);
+        }
+
+        &-checkbox__input:checked ~ &__side--back {
+            transform: rotateY(0);
+        }
+
+        &-checkbox__input:checked ~ &-checkbox__label {
+            transform: translate(-50%, -100%) rotateY(-180deg);
+        }
+    }
+
+    // CARD ROTATION FUNCTIONALITY WHEN HOVERING THE CARD + ROTATION OF THE BUTTON TOGETHER WITH THE CARD WHEN HOVERING THE CARD
+
+    &__container:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &__container:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__container:hover &-checkbox__label {
+        transform: translate(-50%, -100%) rotateY(-180deg);
+    }
+}

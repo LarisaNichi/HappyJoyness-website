@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+.logo {
+
+    &__link {
+        display: block;
+        text-decoration: none;
+    }
+
+    &__img {
+        display: block;
+        height: 3.6rem;
+        width: auto;
+        padding: 0.4rem 0.8rem;
+        border-radius: 100rem;
+        @include transition-short;
+
+
+
+        &--light {
+            background-color: $color-primary;
+            &:hover {
+                background-color: $color-primary-dark-1;
+            }
+        }
+
+        &--dark {
+            background-color: $color-primary-dark-2;
+
+            &:hover {
+                background-color: $color-primary-dark-1;
+            }
+
+            @include respond(phone){
+                display: none;
+            }
+        }
+    }
+
+}

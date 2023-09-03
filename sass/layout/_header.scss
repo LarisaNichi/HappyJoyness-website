@@ -1,0 +1,26 @@
+@use "../abstracts" as *;
+
+.header {
+    width: inherit;
+    background-color: rgba($color-light-4, 0.9);
+    z-index: 9999;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 5vw;
+
+    @include center-vertical;
+
+    @include respond(phone-land) {
+         padding: 0 2.5vw;
+    }
+
+    @include respond(phone) {
+        padding: 0 5vw;
+   }
+
+   @include respond(big-desk){
+     padding: 0 15vw;
+ }
+}
