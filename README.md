@@ -4,7 +4,7 @@ HappyJoyness-website-personal project
 
 ## Introduction
 
-This is a personal project developed using the technologies learned: HTML5, CSS3, CSS Preprocessors (SAAS), BEM methodology, Responsive Design.
+This is a personal project developed using the technologies learned: HTML5, CSS3, CSS Preprocessors (SAAS), BEM methodology and Responsive Design.
 
 ## **Authors and Acknowledgment**
 
