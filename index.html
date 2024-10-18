@@ -17,6 +17,10 @@
     <meta property="og:url" content="https://happy-joyness.com" />
     <meta property="og:title" content="The place where happiness exists" />
     <meta
+      property="og:site_name"
+      content="Happy&amp;Joyness &mdash; The place were hapiness exists"
+    />
+    <meta
       property="og:image"
       content="https://happy-joyness.com/img/joyness_og.jpg"
     />
@@ -53,7 +57,7 @@
   </head>
 
   <body>
-   <!------------------------------------------>
+    <!------------------------------------------>
 
     <!------------- HEADER WITH NAVIGATION -------------->
 
@@ -90,11 +94,16 @@
           </li>
 
           <li class="main-nav__item main-nav__item--toggle">
+            <input
+              type="checkbox"
+              name="nav-opener"
+              id="main-nav__opener"
+              class="main-nav__opener__input"
+            />
+            <label for="main-nav__opener" class="main-nav__opener__label"
+              >&nbsp;</label
+            >
 
-            <input type="checkbox" name="nav-opener" id="main-nav__opener" class="main-nav__opener__input">
-            <label for="main-nav__opener" class="main-nav__opener__label">&nbsp;</label>
-
-  
             <a
               href="experiences.html"
               class="main-nav__link main-nav__link--toggle"
@@ -159,11 +168,10 @@
           </li>
         </ul>
       </nav>
-
     </header>
 
     <main class="main container-grid">
-     <!------------------------------------------>
+      <!------------------------------------------>
 
       <!------------ HERO SECTION ------------->
 
@@ -183,13 +191,13 @@
           </p>
 
           <div class="hero__links">
-          <a href="#section-cards" class="btn-link btn-link--primary"
-            >Try it now</a
-          >
-          <a href="#section-testimonials" class="btn-link btn-link--secondary"
-            >View more</a
-          >
-        </div>
+            <a href="#section-cards" class="btn-link btn-link--primary"
+              >Try it now</a
+            >
+            <a href="#section-testimonials" class="btn-link btn-link--secondary"
+              >View more</a
+            >
+          </div>
         </div>
 
         <!-- Hero image -->
@@ -248,7 +256,8 @@
             />
             <div class="testimonial__content">
               <blockquote class="testimonial__text">
-                &ldquo;Who drinks water from these places will never leave.&rdquo;
+                &ldquo;Who drinks water from these places will never
+                leave.&rdquo;
               </blockquote>
               <p class="testimonial__name">Larisa N.</p>
             </div>
@@ -375,9 +384,7 @@
             <div class="feature__description">
               <i class="fa-solid fa-dumbbell feature__icon"></i>
               <h3 class="heading-3">Build strengths</h3>
-              <p class="feature__text">
-                Try different nature activities
-              </p>
+              <p class="feature__text">Try different nature activities</p>
               <a
                 href="experiences.html#strengths"
                 class="btn-link btn-link--tertiary"
@@ -392,8 +399,6 @@
               />
             </div>
           </div>
-
-
         </div>
       </section>
 
@@ -617,8 +622,11 @@
           <!-- CTA text box which includes the form   -->
 
           <div class="cta__text-box">
-            <form  action="https://formspree.io/f/mzblgrvq"
-            method="POST" class="cta__form">
+            <form
+              action="https://formspree.io/f/mzblgrvq"
+              method="POST"
+              class="cta__form"
+            >
               <div class="cta__form__group-input">
                 <label for="first-name" class="cta__form__label"
                   >First Name</label
@@ -760,8 +768,8 @@
               class="logo__img logo__img--dark"
           /></a>
           <p class="copyright">
-            Copyright &copy; 2023 by Happy&amp;Joyness on behalf of Larisa Nichiforov.
-            All rights reserved.
+            Copyright &copy; 2023 by Happy&amp;Joyness on behalf of Larisa
+            Nichiforov. All rights reserved.
           </p>
         </div>
 
